@@ -50,8 +50,8 @@ fn App() -> Html {
 
             // Spawn async task for the API call
             wasm_bindgen_futures::spawn_local(async move {
-                // Construct URL: e.g., http://localhost:8000/calculate?method=add&a=10&b=20
-                let url = format!("http://localhost:8000/calculate?method={}&a={}&b={}", m, a, b);
+                // Construct URL: e.g., http://hello-rocket-tqm2.onrender.com/calculate?method=add&a=10&b=20
+                let url = format!("https://hello-rocket-tqm2.onrender.com/calculate?method={}&a={}&b={}", m, a, b);
 
                 match Request::get(&url).send().await {
                     Ok(resp) => {
