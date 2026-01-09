@@ -1,0 +1,11 @@
+[package]
+name = "hello-yew"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+yew = { version = "0.22.0", features = ["csr"]}
+gloo-net = "0.6.0"
+wasm-bindgen-futures = "0.4.56"
+serde = {version = "1.0.228", features = ["derive"]}
+web-sys = {version = "0.3.83", features = ["HtmlInputElement", "HtmlSelectElement", "Event"]}
