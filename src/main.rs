@@ -13,22 +13,22 @@ fn App() -> Html {
     // Methods to update states
     let on_a_change = {
         let a_val = a_val.clone();
-        let _ = Callback::from(move |e: InputEvent| {
+        Callback::from(move |e: InputEvent| {
             let input: HtmlInputElement = e.target_unchecked_into();
             if let Ok(val) = input.value().parse::<f32>() {
                 a_val.set(val);
             }
-        });
+        })
     };
 
     let on_b_change = {
         let b_val = b_val.clone();
-        let _ = Callback::from(move |e: InputEvent| {
+        Callback::from(move |e: InputEvent| {
             let input: HtmlInputElement = e.target_unchecked_into();
             if let Ok(val) = input.value().parse::<f32>() {
                 b_val.set(val);
             }
-        });
+        })
     };
 
     let on_method_change = {
@@ -75,13 +75,13 @@ fn App() -> Html {
                 </header>
 
                 <label>{ "Number A" }</label>
-                <input type="number" oninput={move |_| on_a_change} value={a_val.to_string()} />
+                <input type="number" oninput={on_a_change} value={a_val.to_string()} />
 
                 <label>{ "Number B" }</label>
-                <input type="number" oninput={move |_| on_b_change} value={b_val.to_string()} />
+                <input type="number" oninput={on_b_change} value={b_val.to_string()} />
 
                 <label>{ "Operation" }</label>
-                <select onchange={on_method_change}>
+                <select onchange={on_method_change} value={(*method).clone()}>
                     <option value="add">{ "Add (+)" }</option>
                     <option value="sub">{ "Subtract (-)" }</option>
                     <option value="mul">{ "Multiply (*)" }</option>
